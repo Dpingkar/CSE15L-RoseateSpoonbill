@@ -49,4 +49,22 @@ public class MarkdownParseTest {
         expected.add("https://something.com");
         assertEquals(links,expected);
     }
+
+    @Test
+    public void parseTest5() throws IOException {
+        Path fileName = Path.of("test-file5.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        ArrayList<String> expected = new ArrayList<String>();
+        assertEquals(links,expected);
+    }
+
+    @Test
+    public void parseTest6() throws IOException {
+        Path fileName = Path.of("test-file6.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        ArrayList<String> expected = new ArrayList<String>();
+        assertEquals(links,expected);
+    }
 }
