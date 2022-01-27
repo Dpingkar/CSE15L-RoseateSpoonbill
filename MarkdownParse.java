@@ -24,10 +24,8 @@ public class MarkdownParse {
                  nextOpenBracket == -1  ) {
                      break;
                  }
-            if(nextCloseBracket + 1 != openParen){
-                break;
-            }
-            if(markdown.indexOf("!") != nextOpenBracket - 1){
+            if(nextCloseBracket + 1 == openParen &&
+               markdown.indexOf("!") != nextOpenBracket - 1){
                 toReturn.add(markdown.substring(openParen + 1, closeParen));
             }
 
