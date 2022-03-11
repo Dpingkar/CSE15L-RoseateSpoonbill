@@ -102,10 +102,34 @@ public class MarkdownParseTest {
 	    String contents = Files.readString(fileName);
         ArrayList<String> links = MarkdownParse.getLinks(contents);
         ArrayList<String> expected = new ArrayList<String>();
-        expected.add("google.com");
+        expected.add("`google.com");
         expected.add("google.com");
         expected.add("ucsd.edu");
-        assertEquals(links,expected);
+        assertEquals(expected,links);
+    }
+
+    @Test
+    public void parseTest11() throws IOException {
+        Path fileName = Path.of("test-file11.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        ArrayList<String> expected = new ArrayList<String>();
+        expected.add("a.com");
+        expected.add("a.com(())");
+        expected.add("example.com");
+        assertEquals(expected,links);
+    }
+
+    @Test
+    public void parseTest12() throws IOException {
+        Path fileName = Path.of("test-file12.md");
+	    String contents = Files.readString(fileName);
+        ArrayList<String> links = MarkdownParse.getLinks(contents);
+        ArrayList<String> expected = new ArrayList<String>();
+        expected.add("https://www.twitter.com");
+        expected.add("https://ucsd-cse15l-w22.github.io/");
+        expected.add("https://cse.ucsd.edu/");
+        assertEquals(expected,links);
     }
 
     @Test
